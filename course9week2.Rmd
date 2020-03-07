@@ -1,0 +1,32 @@
+---
+title: "Couse 9 Week 2 Assignment"
+author: "Omer Saeed"
+date: "3/7/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Sites in Long Beach, CA
+
+
+
+```{r  echo=FALSE}
+library(leaflet)
+
+latLong <- data.frame(
+     lat = c(33.8185791 , 33.8159123, 33.7939101),
+     lng = c(-118.1438376, -118.0855862, -118.178455)
+)
+
+longBeachSites <- c("<a href = http://www.lgb.org>Long Beach Airport </a>", 
+                    "<a href = http://www.longbeach.gov/park/park-and-facilities/directory/el-dorado-east-regional-park/>El Dorado Park</a>",
+                    "<a href = https://lbpoly.schoolloop.com/>Long Beach Polytechnic High School </a>")
+
+latLong %>% leaflet() %>% addTiles() %>% addMarkers(popup = longBeachSites)
+
+```
+
+
